@@ -152,7 +152,7 @@
         <h2> Lab links:</h2>
         <div>
             <ul>
-                <li><a href="../index.html">Lab 1</a></li>
+                <li><a href="index.html">Lab 1</a></li>
                 <li><a href="lab2.php">Lab 2</a></li>
                 <li><a href="index.html">Lab 1</a></li>
             </ul>
