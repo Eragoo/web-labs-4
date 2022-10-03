@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
-    <title>Lab 4</title>
+    <title>Lab 2</title>
     <style>
         html {
             background: beige;
@@ -124,29 +124,20 @@
 <header><span><h1>Eugene Kukhol Web 2</h1></span></header>
 <section>
     <div class="content-text">
-        <h2> Lab 4 Submit</h2>
+        <h2> Lab 3</h2>
         <div>
             <?php
-            $i = $_POST["region"];
-
-            $f = fopen('../oblinfo.txt', 'r');
-            $text = fread($f, filesize('../oblinfo.txt'));
+            $f = fopen('napr.txt', 'r');
+            $text = fread($f, filesize('napr.txt'));
             fclose($f);
 
             $lines = preg_split('/\n|\r\n?/', $text);
 
-            echo "<table>";
-            echo "<tr class=\"styled-table\"><th>Назва області</th><th>Населення тис.</th><th>К-ть ВНЗ</th><th>К-ть ВНЗ на 100 тис.</th></tr>";
+            for($i = 1; $i < count($lines); $i++) {
+                $value = $lines[$i];
+                echo "<input type = \"checkbox\">" . $value . "</input></br>";
+            }
 
-            $region = $lines[$i];
-            $population = $lines[$i + 1];
-            $uniAmount = $lines[$i + 2];
-
-            $uniPer1000Population = round($uniAmount * 100 / $population, 2);
-
-            echo "<tr><td>$region</td><td>$population</td><td>$uniAmount</td><td>$uniPer1000Population</td></tr>";
-
-            echo "</table>"
             ?>
         </div>
         </br>
@@ -154,10 +145,11 @@
         <h2> Lab links:</h2>
         <div>
             <ul>
-                <li><a href="../index.html">Lab 1</a></li>
+                <li><a href="../index.php">Lab 1</a></li>
                 <li><a href="../lab2/lab2.php">Lab 2</a></li>
-                <li><a href="../lab3/lab3.php">Lab 3</a></li>
+                <li><a href="p">Lab 3</a></li>
                 <li><a href="../lab4/lab4.php">Lab 4</a></li>
+                <li><a href="../lab5/lab5.php">Lab 5</a></li>
             </ul>
         </div>
     </div>
@@ -174,3 +166,4 @@
 </footer>
 </body>
 </html>
+

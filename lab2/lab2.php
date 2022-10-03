@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
-    <title>Lab 5</title>
+    <title>Lab 2</title>
     <style>
         html {
             background: beige;
@@ -124,55 +124,27 @@
 <header><span><h1>Eugene Kukhol Web 2</h1></span></header>
 <section>
     <div class="content-text">
-        <h2> Lab 5</h2>
-
-        <form action="lab5.php" , method="post">
-            <?php
-            $regions = [
-                    "https://www.gismeteo.ua/ua/weather-cherkasy-4956/",
-                    "https://www.gismeteo.ua/ua/weather-kharkiv-5053/",
-                    "https://www.gismeteo.ua/ua/weather-kyiv-4944/"
-                    ];
-            $mapping = [
-                    "Черкаси","Харків","Київ"
-            ];
-
-
-
-            echo "<select name='region'>";
-            for ($i = 0; $i < count($regions); $i++) {
-                $region = $regions[$i];
-                echo "<option value=" . $region . ">".$mapping[$i]."</option>";
-            }
-            echo "</select>";
-            ?>
-            <input type="submit">
-        </form>
+        <h2> Lab 2</h2>
         <div>
             <?php
-            error_reporting(E_ERROR);
-            $url = $_POST["region"];
-            if (!$url) {
-                $url = "https://www.gismeteo.ua/ua/weather-cherkasy-4956/";
+            $f = fopen('../oblinfo.txt', 'r');
+            $text = fread($f, filesize('../oblinfo.txt'));
+            fclose($f);
+
+            $lines = preg_split('/\n|\r\n?/', $text);
+
+            echo "<table>";
+            echo "<tr class=\"styled-table\"><th>Назва області</th><th>Населення тис.</th><th>К-ть ВНЗ</th><th>К-ть ВНЗ на 100 тис.</th></tr>";
+            for($i = 1; $i < count($lines); $i+=3) {
+                $region = $lines[$i];
+                $population = $lines[$i+1];
+                $uniAmount = $lines[$i+2];
+
+                $uniPer1000Population = round($uniAmount * 100 / $population, 2);
+
+                echo "<tr><td>$region</td><td>$population</td><td>$uniAmount</td><td>$uniPer1000Population</td></tr>";
             }
-            $curl = curl_init();
-            curl_setopt($curl, CURLOPT_URL, $url);
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-            $out = curl_exec($curl);
-
-            $cI = strpos($out, "Схід — ");
-            $c = substr($out, $cI, 50);
-
-            $city = explode(" ", substr($out, strpos($out, "Погода у"), 70))[2];
-
-            $state = explode("\"", substr($out, strpos($out, "data-text"), 70))[1];
-
-            $dayDurationChange = explode(" ", substr($out, strpos($out, "Сьогодні день на"), 200));
-
-            echo "Погода у " . $city . " сьогодні: " . $state . "</br>" . $c . "</br></br>" .
-                "Сьогодні день на " . $dayDurationChange[3] . " " . $dayDurationChange[4] . " " .
-                $dayDurationChange[5] . " ніж вчора";
-
+            echo "</table>"
             ?>
         </div>
         </br>
@@ -180,8 +152,8 @@
         <h2> Lab links:</h2>
         <div>
             <ul>
-                <li><a href="../index.html">Lab 1</a></li>
-                <li><a href="../lab2/lab2.php">Lab 2</a></li>
+                <li><a href="../index.php">Lab 1</a></li>
+                <li><a href="p">Lab 2</a></li>
                 <li><a href="../lab3/lab3.php">Lab 3</a></li>
                 <li><a href="../lab4/lab4.php">Lab 4</a></li>
                 <li><a href="../lab5/lab5.php">Lab 5</a></li>
@@ -201,4 +173,3 @@
 </footer>
 </body>
 </html>
-
