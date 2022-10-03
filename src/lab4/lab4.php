@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
-    <title>Lab 1</title>
+    <title>Lab 4</title>
     <style>
         html {
             background: beige;
@@ -85,40 +85,76 @@
         .content-img .img {
             border-radius: 20px;
         }
+
+        .styled-table {
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9em;
+            font-family: sans-serif;
+            min-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .styled-table thead tr {
+            background-color: #009879;
+            color: #ffffff;
+            text-align: left;
+        }
+
+        .styled-table th,
+        .styled-table td {
+            padding: 12px 15px;
+        }
+
+        .styled-table tbody tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .styled-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        .styled-table tbody tr:last-of-type {
+            border-bottom: 2px solid #009879;
+        }
     </style>
 
 </head>
 <body>
 <header><span><h1>Eugene Kukhol Web 2</h1></span></header>
 <section>
-    <div class="content-img">
-        <div class="img 1">
-            <img src="download.jpeg"
-                 alt="yoast seo"/>
-        </div>
-    </div>
-
     <div class="content-text">
-        <h2> Here is my short info:</h2>
+        <h2> Lab 4</h2>
         <div>
-            <ul>
-                <li>- Java developer since 2019</li>
-                <li>- Well experienced in Spring Stack, OOP, Algorithms, etc.</li>
-                <li>- Have 2 pets: one dog and one cat</li>
-                <li>- Really like running. In 2022 already run more than 2k km</li>
-            </ul>
-        </div>
+            <form action="submit.php" , method="post">
+                <?php
+                $f = fopen('../oblinfo.txt', 'r');
+                $text = fread($f, filesize('../oblinfo.txt'));
+                fclose($f);
 
+                $lines = preg_split('/\n|\r\n?/', $text);
+                $regions = [];
+                echo "<select name='region'>";
+                for ($i = 1; $i < count($lines); $i += 3) {
+                    $region = $lines[$i];
+                    $regions[] = $region;
+                    echo "<option value=" .$i. ">" . $region . "</option>";
+                }
+                echo "</select>";
+                ?>
+                <input type="submit">
+            </form>
+        </div>
         </br>
 
         <h2> Lab links:</h2>
         <div>
             <ul>
-                <li><a href="index.html">Lab 1</a></li>
-                <li><a href="lab2/lab2.php">Lab 2</a></li>
-                <li><a href="lab3/lab3.php">Lab 3</a></li>
-                <li><a href="lab4/lab4.php">Lab 4</a></li>
-                <li><a href="lab5/lab5.php">Lab 5</a></li>
+                <li><a href="../index.html">Lab 1</a></li>
+                <li><a href="../lab2/lab2.php">Lab 2</a></li>
+                <li><a href="../lab3/lab3.php">Lab 3</a></li>
+                <li><a href="../lab4/lab4.php">Lab 4</a></li>
+                <li><a href="../lab5/lab5.php">Lab 5</a></li>
             </ul>
         </div>
     </div>
@@ -135,3 +171,4 @@
 </footer>
 </body>
 </html>
+
