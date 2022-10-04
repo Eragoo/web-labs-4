@@ -126,19 +126,22 @@
     <div class="content-text">
         <h2> Lab 3</h2>
         <div>
-            <?php
-            $f = fopen('napr.txt', 'r');
-            $text = fread($f, filesize('napr.txt'));
-            fclose($f);
+            <form action="submit.php" , method="post">
+                <?php
+                $f = fopen("napr.txt", 'r');
+                $text = fread($f, filesize("napr.txt"));
+                fclose($f);
 
-            $lines = preg_split('/\n|\r\n?/', $text);
+                $lines = preg_split('/\n|\r\n?/', $text);
 
-            for($i = 1; $i < count($lines); $i++) {
-                $value = $lines[$i];
-                echo "<input type = \"checkbox\">" . $value . "</input></br>";
-            }
 
-            ?>
+                for ($i = 0; $i < count($lines); $i++) {
+                    $value = $lines[$i];
+                    echo "<input type = \"checkbox\" name = 'napr' value=" . $value . ">" . $value . "</input></br>";
+                }
+                ?>
+                <input type="submit">
+            </form>
         </div>
         </br>
 
@@ -147,7 +150,7 @@
             <ul>
                 <li><a href="../index.php">Lab 1</a></li>
                 <li><a href="../lab2/lab2.php">Lab 2</a></li>
-                <li><a href="p">Lab 3</a></li>
+                <li><a href="../lab3/lab3.php">Lab 3</a></li>
                 <li><a href="../lab4/lab4.php">Lab 4</a></li>
                 <li><a href="../lab5/lab5.php">Lab 5</a></li>
             </ul>
