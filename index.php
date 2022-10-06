@@ -111,14 +111,22 @@
 
         </br>
 
+        <div>
+            <li><a href="https://github.com/Eragoo/web-labs-4">Source code</a></li>
+        </div>
+        </br>
+        </br>
+
+
         <h2> Lab links:</h2>
         <div>
             <ul>
-                <li><a href="index.php">Lab 1</a></li>
-                <li><a href="lab2/lab2.php">Lab 2</a></li>
-                <li><a href="lab3/lab3.php">Lab 3</a></li>
-                <li><a href="lab4/lab4.php">Lab 4</a></li>
-                <li><a href="lab5/lab5.php">Lab 5</a></li>
+                <li><a href="../index.php">Lab 1</a></li>
+                <li><a href="../lab2/lab2.php">Lab 2</a></li>
+                <li><a href="../lab3/lab3.php">Lab 3</a></li>
+                <li><a href="../lab4/lab4.php">Lab 4</a></li>
+                <li><a href="../lab5/lab5.php">Lab 5</a></li>
+                <li><a href="../lab6/lab6.php">Lab 6</a></li>
             </ul>
         </div>
     </div>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
-    <title>Lab 2</title>
+    <title>Lab 5</title>
     <style>
         html {
             background: beige;
@@ -124,27 +124,20 @@
 <header><span><h1>Eugene Kukhol Web 2</h1></span></header>
 <section>
     <div class="content-text">
-        <h2> Lab 3</h2>
+        <h2> Lab 5</h2>
         <div>
-            <form action="submit.php" , method="post">
-                <?php
-                $f = fopen("napr.txt", 'r');
-                $text = fread($f, filesize("napr.txt"));
-                fclose($f);
-
-                $lines = preg_split('/\n|\r\n?/', $text);
-
-
-                for ($i = 0; $i < count($lines); $i++) {
-                    $value = $lines[$i];
-                    echo "<input type = \"checkbox\" name = 'napr' value=" . $value . ">" . $value . "</input></br>";
-                }
-                ?>
-                <input type="submit">
-            </form>
+            <h2 class="title">Погода в містах України:</h2>
+            <img src="./pogoda.php?city=cherkasy-4956">
+            <img src="./pogoda.php?city=lviv-4949">
+            <img src="./pogoda.php?city=kyiv-4944">
+            <img src="./pogoda.php?city=kharkiv-5053">
+            <h2 class="title">Погода у світі:</h2>
+            <img src="./pogoda.php?city=london-744">
+            <img src="./pogoda.php?city=warsaw-3196">
+            <img src="./pogoda.php?city=san-francisco-7188">
+            <img src="./pogoda.php?city=tokyo-5924">
         </div>
         </br>
-
         <div>
             <li><a href="https://github.com/Eragoo/web-labs-4">Source code</a></li>
         </div>
