@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
-    <title>Lab 5</title>
+    <title>Lab 6</title>
     <style>
         html {
             background: beige;
@@ -124,7 +124,7 @@
 <header><span><h1>Eugene Kukhol Web 2</h1></span></header>
 <section>
     <div class="content-text">
-        <h2> Lab 5</h2>
+        <h2> Lab 6</h2>
         <div>
             <h2 class="title">Погода в містах України:</h2>
             <img src="./pogoda.php?city=cherkasy-4956">
