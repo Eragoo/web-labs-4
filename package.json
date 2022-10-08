@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "composer": "^4.1.0",
+    "telnet-client": "^2.0.4"
+  }
+}

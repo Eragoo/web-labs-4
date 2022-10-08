@@ -1,11 +1,5 @@
 {
   "name": "y.kukhol/web",
-  "type": "project",
-  "autoload": {
-    "psr-4": {
-      "YKukhol\\Web\\": "src/"
-    }
-  },
   "authors": [
     {
       "name": "eragoo"
