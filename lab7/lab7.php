@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
-    <title>Lab 4</title>
+    <title>Lab 7</title>
     <style>
         html {
             background: beige;
@@ -118,35 +118,37 @@
             border-bottom: 2px solid #009879;
         }
     </style>
+    <script>
+        function search(e) {
+            document.getElementById("search_results").innerHTML = "";
 
+            const term = e.target.value;
+            const http = new XMLHttpRequest();
+            http.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    document.getElementById("search_results").innerHTML = this.responseText;
+                }
+            };
+            console.log(term)
+            http.open("GET", `./search.php?query=${term}`);
+            http.send();
+        }
+    </script>
 </head>
 <body>
 <header><span><h1>Eugene Kukhol Web 2</h1></span></header>
 <section>
     <div class="content-text">
-        <h2> Lab 4</h2>
+        <h2> Lab 7</h2>
         <div>
-            <form action="submit.php" , method="post">
-                <?php
-                $f = fopen('../oblinfo.txt', 'r');
-                $text = fread($f, filesize('../oblinfo.txt'));
-                fclose($f);
-
-                $lines = preg_split('/\n|\r\n?/', $text);
-                $regions = [];
-                echo "<select name='region'>";
-                for ($i = 1; $i < count($lines); $i += 3) {
-                    $region = $lines[$i];
-                    $regions[] = $region;
-                    echo "<option value=" .$i. ">" . $region . "</option>";
-                }
-                echo "</select>";
-                ?>
-                <input type="submit">
-            </form>
+            <div class="search">
+                <label for="fname" class="title">Пошук на Foxtrot:</label>
+                <input type="text" class="search-input" onkeyup="search(event)"
+                       onchange="search(e)">
+            </div>
+            <div id="search_results"></div>
         </div>
         </br>
-
         <div>
             <li><a href="https://github.com/Eragoo/web-labs-4">Source code</a></li>
         </div>
