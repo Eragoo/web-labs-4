@@ -155,6 +155,8 @@
                 <li><a href="../lab5/lab5.php">Lab 5</a></li>
                 <li><a href="../lab6/lab6.php">Lab 6</a></li>
                 <li><a href="../lab7/lab7.php">Lab 7</a></li>
+                <li><a href="../lab8/lab8-ajax.php">Lab 8 XML + JSON</a></li>
+                <li><a href="../lab8/lab8-xml.php">Lab 8 AJAX</a></li>
             </ul>
         </div>
     </div>
